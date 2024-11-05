@@ -3,9 +3,33 @@ body {
     justify-content: center;
     align-items: center;
     background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.calculator {
+    width: 300px;
+    /* height: 200px; */
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.display {
+    background-color: black;
+    color: white;
+    text-align: right;
+    padding: 20px;
+    font-size: 30px;
+    border-radius: 10px;
 }
 
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+}
+.buttons:hover {
+    background-color: aqua;
+}
+
+.equal-btn {
+    grid-column: span 3;
 }
