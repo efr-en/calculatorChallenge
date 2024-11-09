@@ -6,7 +6,7 @@ function updateDisplay(value) {
     display.textContent = value;
 }
 // console.log(updateDisplay())
-
+// clears the display
 function clearDisplay() {
     displayValue = "";
     currentOperator = "";
@@ -20,6 +20,18 @@ function appendNumber(number) {
         displayValue += number;
     }
     updateDisplay(displayValue);
+}
+
+function appendOperator(operator) {
+    if (displayValue && !currentOperator) {
+        displayValue += "" + operator + "";
+        currentOperator = operator;
+    }
+    updateDisplay(displayValue)
+}
+
+function calculate() {
+    
 }
 
 // need functions for clearing display, updating display, calculations
