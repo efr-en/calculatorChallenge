@@ -5,7 +5,7 @@ function updateDisplay(value) {
     const display = document.getElementById('display');
     display.textContent = value;
 }
-// console.log(updateDisplay())
+
 // clears the display
 function clearDisplay() {
     displayValue = "";
@@ -24,14 +24,26 @@ function appendNumber(number) {
 
 function appendOperator(operator) {
     if (displayValue && !currentOperator) {
-        displayValue += "" + operator + "";
+        displayValue += " " + operator + " ";
         currentOperator = operator;
     }
-    updateDisplay(displayValue)
+    updateDisplay(displayValue);
 }
 
+// Calculation function
 function calculate() {
-    
+    try {
+        // displayValue = displayValue.replace(); 
+        const result = eval(displayValue);  // eval does the actual math of whatever is in the dis.
+        if (!isFinite(result)) throw "Error"; //isFinite checks for a finite number (NaN or infinity)
+        updateDisplay(result);
+        displayValue = result;
+        currentOperator = "";
+    } catch (error) {
+        updateDisplay("Error");
+        displayValue = "";
+        currentOperator = "";
+    }
 }
 
 // need functions for clearing display, updating display, calculations
